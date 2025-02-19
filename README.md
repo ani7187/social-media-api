@@ -25,8 +25,8 @@ Before running the application, ensure you have the following installed:
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/your-repo/nestjs-app.git
-    cd nestjs-app
+    git clone https://github.com/ani7187/social-media-api.git
+    cd social-media-api
     ```
     ```bash
     $ npm install
