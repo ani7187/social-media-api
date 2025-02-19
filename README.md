@@ -40,8 +40,6 @@ Ensure your PostgreSQL database is running on the specified host and port, and t
    Create tables. 
    The database schema is defined in the 001-create-tables.sql file.
 
-5. **Access the app at**: http://localhost:3000.
-
 ## Compile and run the project
 
 ```bash
@@ -54,6 +52,8 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+
+**Access the app at**: http://localhost:3000.
 
 ## Deployment
 
