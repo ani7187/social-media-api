@@ -1,11 +1,4 @@
-import {
-  Body,
-  Controller,
-  Param,
-  Post,
-  Request,
-  UseGuards,
-} from '@nestjs/common';
+import { Body, Controller, Post, Request, UseGuards } from '@nestjs/common';
 import { FriendRequestService } from './friend-request.service';
 import { AuthGuard } from '../auth/auth.guard';
 
@@ -45,5 +38,10 @@ export class FriendRequestController {
       req.user.sub,
       sender_id,
     );
+  }
+
+  @Post('requests-list')
+  async getFriendRequestsList(@Request() req: any) {
+    return this.friendRequestService.getFriendRequestsList(req.user.sub);
   }
 }

@@ -57,11 +57,21 @@ export class FriendRequestRepository {
   async findFriend(userId: number, friendId: number): Promise<object> {
     const query =
       'SELECT * FROM friends WHERE user_id = $1 AND friend_id = $2 AND status = $3';
-    const result = await this.pool.query(query, [
-      userId,
-      friendId,
-    ]);
+    const result = await this.pool.query(query, [userId, friendId]);
 
     return result.rows[0];
+  }
+
+  async findFriendRequestsList(receiverId: number): Promise<object> {
+    const query =
+      'SELECT f.*, u.firstname, u.lastname, u.age ' +
+      'FROM friend_requests f ' +
+      'JOIN users u ' +
+      'ON f.sender_id = u.id ' +
+      'WHERE f.receiver_id = $1 ' +
+      'AND f.status = $2';
+    const result = await this.pool.query(query, [receiverId, 'pending']);
+
+    return result.rows;
   }
 }

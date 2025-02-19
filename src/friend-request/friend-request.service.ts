@@ -47,6 +47,12 @@ export class FriendRequestService {
     return { message: 'Friend request declined' };
   }
 
+  async getFriendRequestsList(receiver_id: number) {
+    return await this.friendRequestRepository.findFriendRequestsList(
+      receiver_id,
+    );
+  }
+
   private async validateSendRequest(senderId: number, receiverId: number) {
     if (!senderId || !receiverId) {
       throw new BadRequestException('Missing sender or receiver id');
